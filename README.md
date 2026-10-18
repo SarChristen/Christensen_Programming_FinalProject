@@ -39,9 +39,6 @@ The initial 16 features that serve as the predictor variables in this dataset in
 - sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 ### For Inferential Statistics:
 - scipy import stats
-- statsmodels.api
-- statsmodels.formula.api
-- statsmodels.stats.anova import AnovaRM
 ### For the Binary Classification Models
 - sklearn.preprocessing import (
     StandardScaler,
@@ -78,7 +75,13 @@ The initial 16 features that serve as the predictor variables in this dataset in
 #### Go through each chunk of code in order (or select 'Run all' at the beginning.
 
 ## Expected Outputs
+The expected outputs include the following inferential statistics tests, the Independent two-sample t-test comparing the mean FEV1/FVC ratios between outcome group and the Chi-Square Test, looking at the association between the outcome and the Smoking variable. Both tests did not find significance.
+Three binary classification machine learning models were trained and evaluated, then tuned for improving recall and evaluated again to find the best model for predicting the outcome of surviving one year after major lung surgery. These three types of models were Logistic Regression, Support Vector Machine, and Decision Tree classifier. The models were tuned with Hyperparameter Tuning with the GridSearchCV() function from scikit-learn. The models were evaluated with the following metrics, Accuracy, Precision, Recall, F1-score, and ROC-AUC scores for both the training and test sets. 
 
-
+## Conclusions
+The Baseline Logistic Regression model is the best of the tested six models based on having the best Test Recall score, which minimizes the number of harmful False Negatives, while also having the best Test Precision and Test ROC-AUC value, suggesting this model is also has the best rate of False Positives, which may not be the primary metric, is still important, and that it is the best overall model at predicting the outcome variable for this dataset.
 
 ## Assumptions and limitations
+Assumptions of this analysis include that the population the participants were sampled from has a normal distribution and the variance of the continuous variable, FEV1/FVC Ratio is equal between the outcome groups. Both of these assumptions allow the parametric statistics tests. 
+Limitations of this dataset include the unbalanced outcome classes and the missing background information behind some of the variables, like the units for the measurements of the FEV1 and FVC, or the clinical cutoffs for possible measurements of these values. 
+It would also have been interesting to have access to other variables including demographics.
